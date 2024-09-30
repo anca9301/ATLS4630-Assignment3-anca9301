@@ -1,7 +1,30 @@
+body {
+    background-color: #7fffd4;
+}
+
+p {
+    font-weight: normal;
+}
+
 .expand {
     display: none;
 }
 
-body {
-    background-color: aquamarine;
+#displaySearchList {
+    display: flex;
+    flex-flow: row nowrap;
+    
+    justify-content: space-between;
+}
+
+#searchTitle {
+    font-weight: bolder;
+    flex-grow: 2;
+    
+}
+
+#searchAuthor, #searchLineCount, #searchIndex {
+    font-weight: bolder;
+    flex-grow: 1;
+    
 }
