@@ -18,17 +18,12 @@ const EXPAND_RAND_POEM_BUTTON = document.getElementById('expandRandomPoem');
 const RAND_POEM_BUTTON = document.getElementById("randomizeDisplayButton");
 const SEARCH_BUTTON = document.getElementById('searchButton');
 
-const MAX_DISPLAY_LINES = 10;
+const MAX_DISPLAY_LINES = 20;
 let currentRandomPoem, searchPoemList, currentSearchPoem;
 
 newRandPoem();
 
-// fetch('https://poetrydb.org/')
-//     .then(response => response.json())
-//     .then(json => console.log(json[0]))
-
 RAND_POEM_BUTTON.addEventListener('click', newRandPoem);
-EXPAND_RAND_POEM_BUTTON.addEventListener('click', displayRandPoem);
 SEARCH_BUTTON.addEventListener('click', searchPoem);
 INDEX_INPUT.addEventListener('change', displayPoem);
 
@@ -37,7 +32,10 @@ function clear(div) {
 }
 
 async function newRandPoem() {    
-    const url = `https://poetrydb.org/random`;
+    const randLineCount = Math.random() * 21;
+    console.log(randLineCount);
+    const url = `https://poetrydb.org/linecount,random/${randLineCount};1`;
+
     const response = await fetch(url);
     const json = await response.json();
 
@@ -45,28 +43,19 @@ async function newRandPoem() {
     let lines = currentRandomPoem[0].lines;
 
     if (lines.length <= MAX_DISPLAY_LINES) {
-        EXPAND_RAND_POEM_BUTTON.style.display = "none";
-        displayRandPoem(true);
+        displayRandPoem();
     }
     else {
-        EXPAND_RAND_POEM_BUTTON.style.display = "block";
-        displayRandPoem(false);
+        newRandPoem();
     }
 }
 
-function displayRandPoem(displayFull) {
+function displayRandPoem() {
     clear(RAND_DISPLAY);
-
-    const lines = currentRandomPoem[0].lines;
-    let displayLines = MAX_DISPLAY_LINES;
-
-    console.log(displayFull);
-
-    if (displayFull) { 
-        displayLines = lines.length;
-        EXPAND_RAND_POEM_BUTTON.style.display = "none";
-    }
     
+    const lines = currentRandomPoem[0].lines;
+    let displayLines = lines.length;
+
     const title = document.createElement('h3');
     title.textContent= currentRandomPoem[0].title;
     RAND_DISPLAY.append(title);
@@ -74,6 +63,7 @@ function displayRandPoem(displayFull) {
     const poet = document.createElement('h4');
     poet.textContent= currentRandomPoem[0].author;
     RAND_DISPLAY.append(poet);
+    console.log('test');
 
     for (let i = 0; i < displayLines; i++) {
         const paragraph = document.createElement('p');
@@ -135,6 +125,8 @@ async function searchPoem() {
 }
 
 function displayPoem() {   
+    clear(SEARCH_POEM_DISPLAY);
+
     const index = INDEX_INPUT.value;
     const poemEntry = searchPoemList[index]; 
     const title = document.createElement('h3');
