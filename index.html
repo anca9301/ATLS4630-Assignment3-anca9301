@@ -3,11 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>Assignment 3: APIs and JSON</title>
 </head>
 <body>
-    <h1>Assignment 3</h1>
-    <button id="add">ADD</button>
+    <h1>Welcome</h1>
+
+    <div class="divGrouping" id = "randomDiv">
+        <fieldset>
+            <button id="randomizeDisplayButton">Get Random Poem</button>
+            <div class="display" id="displayRandPoem"></div>
+            <button class="expand" id="expandRandomPoem">...</button>
+        </fieldset>
+    </div>
+
+    <div class="divGrouping" id = "searchListDiv">
+        <fieldset>
+            <label for="searchTitleInput">Title:</label>
+            <input type="search" id="searchTitleInput" name="searchTitle">
+
+            <label for="searchPoetInput">Poet:</label>
+            <input type="search" id="searchPoetInput" name="searchPoet">
+            
+            <button id="searchButton">Search</button>
+            <div class="display" id="displaySearchList"></div>
+        </fieldset>
+    </div>
+
+    <div class="divGrouping" id = "displaySpecificDiv"></div>
+        <fieldset>
+            <div class="display" id="displaySearchPoem"></div>
+        </fieldset>
+    </div>
+
+
 </body>
 </html>
