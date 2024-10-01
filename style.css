@@ -1,16 +1,37 @@
 body {
-    background-color: #7fffd4;
+    padding: 2rem;
+    background-color: rgb(246, 240, 231);
+    color: rgb(73, 47, 1);
+    font-family:'Times New Roman', Times, serif;
+}
+
+fieldset {
+    margin: 1rem;
+    padding: .5rem;
+    width: 40rem;
+    align-self: center;
 }
 
 p {
     font-weight: normal;
 }
 
+h3 {
+    margin-top: 0.5rem;
+}
+
 .expand {
     display: none;
 }
 
-#displaySearchList {
+.flex_container {
+    display: flex;
+    flex-flow: column nowrap;
+    /* padding-left: 25%;
+    padding-right: 25%; */
+}
+
+.container {
     display: flex;
     flex-flow: row nowrap;
     
@@ -19,12 +40,36 @@ p {
 
 #searchTitle {
     font-weight: bolder;
-    flex-grow: 2;
-    
+    flex-grow: 3;
+    width: 30%;
 }
 
-#searchAuthor, #searchLineCount, #searchIndex {
+#searchAuthor {
     font-weight: bolder;
-    flex-grow: 1;
-    
+    flex-grow: 2; 
+    width: 20%;
 }
+
+#searchLineCount, #searchIndex {
+    font-weight: bolder;
+}
+
+.titleChild {
+    flex-grow: 3; 
+    width: 30%;
+}
+
+.authorChild {
+    flex-grow: 2; 
+    width: 20%;
+}
+
+ .child {
+    flex-grow: 1;
+    width: 10%;
+}
+
+/* .divGrouping {
+    display: flexbox;
+    flex-wrap: wrap;
+} */

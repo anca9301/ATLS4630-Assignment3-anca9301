@@ -98,6 +98,9 @@ async function searchPoem() {
     console.log(json);
 
     for (let i = 0; i < json.length; i++) {
+        const container = document.createElement('div');
+        container.className = 'container';
+
         const index = document.createElement('p');
         const title = document.createElement('p');
         const author = document.createElement('p');
@@ -105,16 +108,22 @@ async function searchPoem() {
         const poemEntry = json[i];
 
         index.textContent = `${i + 1}`;
-        SEARCH_INDEX_DISPLAY.append(index);
+        index.className = 'child';
+        container.append(index);
 
         title.textContent += `${poemEntry.title}`;
-        SEARCH_TITLE_DISPLAY.append(title);
+        title.className = 'titleChild';
+        container.append(title);
 
         author.textContent += `${poemEntry.author}`;
-        SEARCH_AUTHOR_DISPLAY.append(author);
+        author.className = 'authorChild';
+        container.append(author);
 
         linecount.textContent += `${poemEntry.linecount}`;
-        SEARCH_LINE_COUNT_DISPLAY.append(linecount);
+        linecount.className = 'child';
+        container.append(linecount);
+
+        SEARCH_LIST_DISPLAY.append(container);
 
         const option = document.createElement('option');
         option.value = i;
