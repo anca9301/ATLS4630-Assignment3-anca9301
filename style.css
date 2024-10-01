@@ -1,15 +1,16 @@
 body {
     padding: 2rem;
-    background-color: rgb(246, 240, 231);
+    background-color: antiquewhite;
     color: rgb(73, 47, 1);
     font-family:'Times New Roman', Times, serif;
 }
 
 fieldset {
     margin: 1rem;
-    padding: .5rem;
+    padding: 1rem;
     width: 40rem;
     align-self: center;
+    background-color: rgb(250, 244, 234);
 }
 
 p {
@@ -69,7 +70,8 @@ h3 {
     width: 10%;
 }
 
-/* .divGrouping {
-    display: flexbox;
-    flex-wrap: wrap;
-} */
+.divGrouping {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
